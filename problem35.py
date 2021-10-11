@@ -5,7 +5,6 @@ n = 0
 
 circ_primes = []
 
-
 def isPrime(test):
     n = int(np.sqrt(test))
     for i in range(2,n+1):
@@ -24,14 +23,13 @@ def circTest(test):
             return False
     return True
 
-print(isPrime(13))
-print(circTest(3001))
 
-"""for i in range(2,1000000):
+
+for i in range(2,1000000):
     if circTest(i) == True:
         circ_primes.append(i)
 
-print(len(circ_primes))"""
+print(len(circ_primes))
 
 
 

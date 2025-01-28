@@ -14,11 +14,11 @@ class SmallestMultiple:
         self.get_answer()
 
     def get_answer(self):
-        self.get_prime_factors()
+        self.get_common_prime_factors_to_limit()
         self.answer = np.prod(self.prime_factors)
         print(self.answer)
 
-    def get_prime_factors(self):
+    def get_common_prime_factors_to_limit(self):
         for number in range(2, self.limit+1):
             prime_factors = utils.get_prime_factors(number)
             self.prime_factors = utils.combine_prime_factors(self.prime_factors, prime_factors)

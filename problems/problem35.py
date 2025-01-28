@@ -1,36 +1,45 @@
+import utils.utils as utils
 import numpy as np
 
-i = 1
-n = 0
+class CircularPrimes:
 
-circ_primes = []
+    def __init__(self, limit):
+        self.limit = limit
 
-def isPrime(test):
-    n = int(np.sqrt(test))
-    for i in range(2,n+1):
-        if test % i == 0:
-            return False
-    return True
+        self.circular_primes = []
+        self.answer = 0
 
-def circTest(test):
-    str_test = str(test)
-    n = len(str_test)
-    i=0
-    while i<n:
-        i = i+1
-        str_test = str_test[-1] + str_test[0:-1]
-        if isPrime(int(str_test)) == False:
-            return False
-    return True
+        self.get_answer()
 
+    def get_answer(self):
+        self.get_circular_primes()
+        self.answer = len(self.circular_primes)
+        print(self.answer)
 
+    def get_circular_primes(self):
+        for number in range(2, limit):
+            if utils.check_if_prime(number):
+                if self.check_if_circular(number):
+                    self.circular_primes.append(number)
+                else:
+                    continue
+            else:
+                continue
 
-for i in range(2,1000000):
-    if circTest(i) == True:
-        circ_primes.append(i)
+    @staticmethod
+    def check_if_circular(candidate):
+        candidate = str(candidate)
 
-print(len(circ_primes))
+        for rotation in range(1,len(candidate)):
+            candidate = candidate[-1] + candidate[:-1]
 
+            if utils.check_if_prime(int(candidate)):
+                continue
+            else:
+                return False
 
+        return True
 
-
+if __name__ == '__main__':
+    limit = 1000000
+    CircularPrimes(limit)

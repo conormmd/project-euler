@@ -1,6 +1,5 @@
 import utils.utils as utils
 
-
 class MultiplesOfFactors:
 
     def __init__(self, factors, limit):

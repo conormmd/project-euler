@@ -23,6 +23,9 @@ def check_if_prime(number):
             return False
     return True
 
+def check_if_square(number):
+    return np.sqrt(number) == int(np.sqrt(number))
+
 def get_factors(number, lims=None, get_first_factor=False):
     if lims is None:
         lim_low = 2
@@ -99,3 +102,18 @@ def combine_prime_factors(factors_master, factors_to_add):
             pass
 
     return factors_master
+
+def sieve_of_eratosthenes(limit):
+    check_limit = int(np.sqrt(limit))
+    prime_number_line = np.ones(limit+1, dtype=np.bool)
+    prime_number_line[0] = False
+    prime_number_line[1] = False
+
+    for number in range(2, check_limit+1):
+        if prime_number_line[number]:
+            prime_number_line[2*number::number] = False
+
+    number_line = np.arange(0,limit+1, dtype='int64')
+    primes = number_line[prime_number_line]
+
+    return primes

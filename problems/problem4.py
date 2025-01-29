@@ -1,4 +1,3 @@
-import numpy as np
 import utils.utils as utils
 
 class PalindromeProduct:

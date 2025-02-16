@@ -26,7 +26,7 @@ def check_if_prime(number):
 def check_if_square(number):
     return np.sqrt(number) == int(np.sqrt(number))
 
-def get_factors(number, lims=None, get_first_factor=False):
+def get_factors(number, lims=None, get_first_factor=False, return_flat=False):
     if lims is None:
         lim_low = 2
         lim_high = int(np.sqrt(number)) + 1
@@ -45,6 +45,10 @@ def get_factors(number, lims=None, get_first_factor=False):
                 return [factor_1, factor_2]
 
             factors.append((factor_1, factor_2))
+
+    if return_flat:
+        factors = list(set([factor for factor_tuple in factors for factor in factor_tuple]))
+        return factors
 
     return factors
 
@@ -81,7 +85,6 @@ def get_prime_factors(number):
         return prime_factors
 
     factors = get_factors(number, get_first_factor=True)
-    # factors = [factor for factor_tuple in factors for factor in factor_tuple]
 
     for factor in factors:
         if check_if_prime(factor):

@@ -120,3 +120,12 @@ def sieve_of_eratosthenes(limit):
     primes = number_line[prime_number_line]
 
     return primes
+
+def collatz_next_number(number):
+    if number == 1:
+        return 1
+    even = check_if_even(number)
+    if even:
+        return int(number/2)
+    else:
+        return 3 * number + 1

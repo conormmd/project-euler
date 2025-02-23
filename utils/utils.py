@@ -129,3 +129,11 @@ def collatz_next_number(number):
         return int(number/2)
     else:
         return 3 * number + 1
+
+def get_sum_of_proper_divisors(number):
+    if number > 1:
+        # Get 1 as a factor, exclude number as a factor
+        factors = get_factors(number, return_flat=True) + [1]
+        return np.sum(factors)
+    else:
+        return 0

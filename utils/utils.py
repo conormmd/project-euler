@@ -10,14 +10,14 @@ def check_if_even(number):
     return check_if_multiple(number, 2)
 
 def check_if_prime(number):
-    check_limit = int(np.sqrt(number))
-    if number == 1:
+    if number <= 1:
         return False
     elif number == 2:
         return True
     elif check_if_even(number):
         return False
     # Check all odds from 3
+    check_limit = int(np.sqrt(number))
     for factor in range(3, check_limit+1, 2):
         if number % factor == 0:
             return False

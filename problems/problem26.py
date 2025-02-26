@@ -36,6 +36,7 @@ class ReciprocalCycle:
 
 
     def check_reciprocal_for_cycle(self, reciprocal):
+        # TODO - Rework to iterate while adding digits to the manual long division
         decimal = reciprocal[2:]
         # clip the string at different starting positions to skip starting non-patterns
         # e.g. 166666 does not have a pattern, clip the 1 -> 66666 has a pattern

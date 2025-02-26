@@ -21,7 +21,9 @@ class SpiralDiagonals:
         # Each concentric square is odd numbered and length l, and each diagonal is l-1 away from the next
         # Jumping between squares l_1 -> l_2 requires a jump of l_2-1
 
+        # concentric square length
         for l in range(3, self.dimension + 1, 2):
+            # corner of each square
             for c in range(4):
                 self.diagonals.append(self.diagonals[-1] + l - 1)
 

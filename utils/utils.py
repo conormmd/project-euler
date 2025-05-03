@@ -94,6 +94,13 @@ def get_prime_factors(number):
 
     return prime_factors
 
+def simplify_prime_factors(prime_factors):
+    simplified = []
+    for factor in set(prime_factors):
+        simplified.append((factor, prime_factors.count(factor)))
+
+    return simplified
+
 def combine_prime_factors(factors_master, factors_to_add):
     for factor in set(factors_to_add):
         count_master = factors_master.count(factor)
